@@ -12,13 +12,18 @@ const PORT = process.env.PORT ? process.env.PORT : '3000'
 
 mongoose.connect(process.env.MONGODB_URI)
 
-mongoose.connection.on('Connected', () => {
+mongoose.connection.on('connected', () => {
 	console.log(`Connected to MongoDB ${mongoose.connection.name}`)
 })
 
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'))
+
+// Landing Page
+app.get('/', async (req, res) => {
+	res.render('index.ejs')
+})
 
 app.listen(PORT, () => {
 	console.log(`Running on localhost:${PORT}`)
