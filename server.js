@@ -20,10 +20,16 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'))
 
+// Require and use Controller
+const authController = require('./controller/auth')
+app.use('/auth', authController)
+
 // Landing Page
 app.get('/', async (req, res) => {
 	res.render('index.ejs')
 })
+
+app.use('/auth', authController)
 
 app.listen(PORT, () => {
 	console.log(`Running on localhost:${PORT}`)
