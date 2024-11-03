@@ -1,0 +1,28 @@
+button {
+	padding: 8px 16px;
+	border: none;
+	border-radius: 12px;
+	margin-top: 8px;
+	width: 50%;
+}
+
+button:hover {
+	background-color: #f5f5f5;
+	cursor: pointer;
+}
+
+input {
+	padding: 4px 4px;
+	border-radius: 8px;
+	border: 1px solid #bababa;
+}
+
+#username-input,
+#password-input {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	gap: 8px;
+
+	margin: 12px 0;
+}

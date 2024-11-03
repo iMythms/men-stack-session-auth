@@ -3,10 +3,22 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/global.css" />
 		<title>Home Page</title>
 	</head>
 	<body>
 		<h1>Welcome to the MEN STACK Auth app!</h1>
-		<a href="./auth/sign-up">Sign up</a>
+
+		<% if(user) { %>
+		<h1>Welcome to the app <%= user.username %></h1>
+		<% } else { %>
+		<h1>Welcome to the guest mode</h1>
+		<button type="button">
+			<a href="./auth/sign-up">Sign up</a>
+		</button>
+		<button type="button">
+			<a href="./auth/sign-in">Sign in</a>
+		</button>
+		<% } %>
 	</body>
 </html>
